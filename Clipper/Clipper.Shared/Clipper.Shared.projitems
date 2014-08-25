@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>c5a3c128-f0f4-453a-b4b3-5cd472ea2f1c</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Clipper</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="$(MSBuildThisFileDirectory)App.xaml">
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)BindableBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Notifications.cs" />
+    <Content Include="$(MSBuildThisFileDirectory)ModernUIIconsSocial.ttf" />
+    <Content Include="$(MSBuildThisFileDirectory)Twitter.json.sample" />
+    <Content Include="$(MSBuildThisFileDirectory)Twitter.json" />
+    <Compile Include="$(MSBuildThisFileDirectory)RelayCommand.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SerializationExtension.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Twitter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\MainPageViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ShareTargetPageViewModel.cs" />
+  </ItemGroup>
+</Project>

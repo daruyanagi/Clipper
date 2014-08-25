@@ -1,0 +1,97 @@
+﻿<Page
+    x:Name="pageRoot"
+    x:Class="Clipper.ShareTargetPage"
+    DataContext="{Binding DefaultViewModel, RelativeSource={RelativeSource Self}}"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Clipper"
+    xmlns:common="using:Clipper.Common"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:ExtensionType="ShareTarget">
+    
+    <Page.Resources>
+        <Style TargetType="TextBlock" BasedOn="{StaticResource BodyTextBlockStyle}">
+            <Setter Property="Margin" Value="0, 12" />
+        </Style>
+    </Page.Resources>
+
+    <!--
+        このグリッドは 3 つの行を定義するページのルート パネルとして機能します:
+        * 行 0 には標準の共有ターゲット ヘッダーが含まれます
+        * 行 1 には Comment を追加するための TextBox が含まれます
+        * 行 2 には標準の共有ターゲット フッターが含まれます
+    -->
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.ChildrenTransitions>
+            <TransitionCollection>
+                <EntranceThemeTransition/>
+            </TransitionCollection>
+        </Grid.ChildrenTransitions>
+
+        <Grid Margin="40,20,40,60">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0">
+                1. Enter comment, if you need.
+            </TextBlock>
+            
+            <TextBox Grid.Row="1"
+                     Text="{Binding Comment, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                     />
+
+            <TextBlock Grid.Row="2">
+                2. Choose text format. (<Hyperlink NavigateUri="clipper://">Edit formats.</Hyperlink>)
+            </TextBlock>
+            
+            <ListBox Grid.Row="3"
+                     ItemsSource="{Binding List}"
+                     SelectedItem="{Binding SelectedTextFormat, Mode=TwoWay}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <TextBlock Text="{Binding Title}" FontWeight="Bold" />
+                            <TextBlock Text="{Binding Preview}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+
+            <TextBlock Grid.Row="4">
+                3. Send selected fotmat to clipboard.
+            </TextBlock>
+            
+            <StackPanel Grid.Row="5"
+                        Orientation="Horizontal"
+                        Margin="0,12">
+                <Button Command="{Binding CopyCommand}">
+                    <Button.Content>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock FontFamily="Segoe UI Symbol"  FontSize="14">&#xe16c;</TextBlock>
+                            <Border BorderThickness="6" />
+                            <TextBlock>Copy to clipboard</TextBlock>
+                        </StackPanel>
+                    </Button.Content>
+                </Button>
+                <Border BorderThickness="6" />
+                <Button Command="{Binding TweetCommand}">
+                    <Button.Content>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock FontFamily="ms-appx:///ModernUIIconsSocial.ttf#Modern-UI-Icons---Social"  FontSize="14">&#xe045;</TextBlock>
+                            <Border BorderThickness="6" />
+                            <TextBlock>Tweet</TextBlock>
+                        </StackPanel>
+                    </Button.Content>
+                </Button>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Page>
