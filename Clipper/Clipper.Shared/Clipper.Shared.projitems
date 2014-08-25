@@ -18,6 +18,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)BindableBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Notifications.cs" />
     <Content Include="$(MSBuildThisFileDirectory)ModernUIIconsSocial.ttf" />
+    <Content Include="$(MSBuildThisFileDirectory)Twitter.json" />
     <Content Include="$(MSBuildThisFileDirectory)Twitter.json.sample" />
     <Compile Include="$(MSBuildThisFileDirectory)RelayCommand.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SerializationExtension.cs" />
