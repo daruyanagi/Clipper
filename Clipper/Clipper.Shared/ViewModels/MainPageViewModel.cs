@@ -118,6 +118,7 @@ namespace Clipper.ViewModels
             }
             catch
             {
+                Notification.Toast("Can not load Setting file.\r\nLoad Default Settings...");
                 LoadDefault();
             }
         }

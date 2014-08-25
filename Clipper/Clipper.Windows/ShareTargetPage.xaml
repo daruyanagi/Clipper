@@ -30,8 +30,14 @@
             </TransitionCollection>
         </Grid.ChildrenTransitions>
 
-        <Grid Margin="40,20,40,60">
-            <Grid.RowDefinitions>
+        <Grid Margin="40,20,40,60" Visibility="{Binding ErrorGridVisibility, Mode=TwoWay}">
+            <TextBlock>
+                Settings file is not found. Please open <Hyperlink NavigateUri="clipper://">Clipper</Hyperlink>, and save settings.
+            </TextBlock>
+        </Grid>
+
+        <Grid Margin="40,20,40,60" Visibility="{Binding MianGridVisibility, Mode=TwoWay}">
+                <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>

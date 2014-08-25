@@ -10,6 +10,7 @@ namespace Clipper.ViewModels
     using Windows.ApplicationModel.DataTransfer;
     using Windows.ApplicationModel.DataTransfer.ShareTarget;
     using Windows.Storage;
+using Windows.UI.Xaml;
 
     public class ShareTargetPageViewModel : BindableBase
     {
@@ -67,10 +68,12 @@ namespace Clipper.ViewModels
                 var json = await FileIO.ReadTextAsync(file);
 
                 List = json.Deserialize<ObservableCollection<TextFormat>>();
+
+                ErrorGridVisibility = Visibility.Collapsed;
             }
             catch
             {
-                //
+                ErrorGridVisibility = Visibility.Visible;
             }
         }
         public async void Initialize(ShareOperation operation)
@@ -180,6 +183,8 @@ namespace Clipper.ViewModels
                 {
                     RaisePropertyChanged("Preview");
 
+                    if (List == null) return;
+
                     foreach (var item in List)
                     {
                         item.UpdatePreview(item.Format, this);
@@ -209,6 +214,36 @@ namespace Clipper.ViewModels
             get { return list; }
             set { SetProperty(ref list, value); }
         }
+
+        private Visibility errorGridVisibility = Visibility.Visible;
+        public Visibility ErrorGridVisibility
+        {
+            get { return errorGridVisibility; }
+            set
+            {
+                if (SetProperty(ref errorGridVisibility, value))
+                {
+                    RaisePropertyChanged("MianGridVisibility");
+                }
+            }
+        }
+
+        public Visibility MianGridVisibility
+        {
+            get
+            {
+                return errorGridVisibility == Visibility.Visible
+                    ? Visibility.Collapsed
+                    : Visibility.Visible;
+            }
+            set
+            {
+                ErrorGridVisibility = value == Visibility.Visible
+                    ? Visibility.Collapsed
+                    : Visibility.Visible;
+            }
+        }
+
 
         public class TextFormat : BindableBase
         {

@@ -154,3 +154,4 @@ $RECYCLE.BIN/
 
 # Mac desktop service store files
 .DS_Store
+Clipper/Clipper.Shared/Twitter.json
