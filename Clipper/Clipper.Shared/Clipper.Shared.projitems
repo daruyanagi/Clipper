@@ -17,6 +17,7 @@
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)BindableBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Notifications.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\TextFormatBase.cs" />
     <Content Include="$(MSBuildThisFileDirectory)ModernUIIconsSocial.ttf" />
     <Content Include="$(MSBuildThisFileDirectory)Twitter.json" />
     <Content Include="$(MSBuildThisFileDirectory)Twitter.json.sample" />

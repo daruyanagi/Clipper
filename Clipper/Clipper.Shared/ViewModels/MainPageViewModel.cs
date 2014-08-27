@@ -39,7 +39,6 @@ namespace Clipper.ViewModels
         }
 
         private string homePageUrl = "http://daruyanagi.net/";
-        private string privacyPolicyUrl = "http://download.daruyanagi.net/privacy%20policy";
 
         public void MoveUp()
         {
@@ -108,13 +107,7 @@ namespace Clipper.ViewModels
         {
             try
             {
-                var folder = ApplicationData.Current.RoamingFolder;
-                var file = await folder.GetFileAsync("TextFormats.json");
-                var json = await FileIO.ReadTextAsync(file);
-
-                if (string.IsNullOrEmpty(json)) throw new Exception();
-
-                List = json.Deserialize<ObservableCollection<TextFormat>>();
+                List = await TextFormatRepository.Load<TextFormat>();
             }
             catch
             {
@@ -125,44 +118,19 @@ namespace Clipper.ViewModels
 
         public void LoadDefault()
         {
-            List = new ObservableCollection<TextFormat>()
-            {
-                new TextFormat()
-                {
-                    Title = "Title and URL",
-                    Format = "{{title}}\r\n{{url}}",
-                },
-                new TextFormat()
-                {
-                    Title = "Selected Text(or Title) and URL",
-                    Format = "{{text}}\r\n{{url}}",
-                },
-                new TextFormat()
-                {
-                    Title = "Comment and URL",
-                    Format = "{{comment}} / {{url}}",
-                },
-                new TextFormat()
-                {
-                    Title = "Markdown",
-                    Format = "[{{text}}]({{url}})",
-                },
-            };
+            List = TextFormatRepository.LoadDefault<TextFormat>();
         }
 
         public async void Save()
         {
             try
             {
-                var folder = ApplicationData.Current.RoamingFolder;
-                var file = await folder.CreateFileAsync("TextFormats.json", CreationCollisionOption.ReplaceExisting);
-                var json = List.Serialize();
-                
-                await FileIO.WriteTextAsync(file, json);
+                await TextFormatRepository.Save(List);
+                Notification.Toast("Settings are saved successfully.");
             }
-            catch
+            catch(Exception exception)
             {
-                
+                Notification.Toast(exception.Message);
             }
         }
 
@@ -283,56 +251,9 @@ namespace Clipper.ViewModels
             }
         }
 
-        public class TextFormat : BindableBase
+        public class TextFormat : TextFormatBase
         {
-            private string title;
-            public string Title
-            {
-                get { return title; }
-                set { SetProperty(ref title, value); }
-            }
 
-            private string format;
-            public string Format
-            {
-                get { return format; }
-                set { SetProperty(ref format, value); }
-            }
-
-            private string preview;
-            public string Preview
-            {
-                get { return preview; }
-            }
-
-            public void UpdatePreview(string format, dynamic viewModel)
-            {
-                try
-                {
-                    var f = format;
-                    f = f.Replace("{{comment}}", viewModel.Comment);
-                    f = f.Replace("{{applink}}", "{0}");
-                    f = f.Replace("{{appname}}", "{1}");
-                    f = f.Replace("{{description}}", "{2}");
-                    f = f.Replace("{{desc}}", "{2}");
-                    f = f.Replace("{{selected}}", "{3}");
-                    f = f.Replace("{{text}}", "{4}");
-                    f = f.Replace("{{title}}", "{5}");
-                    f = f.Replace("{{weblink}}", "{6}");
-                    f = f.Replace("{{link}}", "{6}");
-                    f = f.Replace("{{url}}", "{6}");
-
-                    preview = string.Format(f, viewModel.AppLink, viewModel.AppName,
-                        viewModel.Description, viewModel.SelectedText, viewModel.Text,
-                        viewModel.Title, viewModel.WebLink);
-                }
-                catch
-                {
-                    preview = string.Empty;
-                }
-
-                RaisePropertyChanged("Preview");
-            }
         }
     }
 }

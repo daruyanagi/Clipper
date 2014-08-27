@@ -36,7 +36,8 @@
             </TextBlock>
         </Grid>
 
-        <Grid Margin="40,20,40,60" Visibility="{Binding MianGridVisibility, Mode=TwoWay}">
+        <Grid Margin="40,20,40,60" x:Name="MainGrid"
+              Visibility="{Binding MianGridVisibility, Mode=TwoWay}">
                 <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
@@ -50,7 +51,7 @@
                 1. Enter comment, if you need.
             </TextBlock>
             
-            <TextBox Grid.Row="1"
+            <TextBox Grid.Row="1" x:Name="CommentTextBox"
                      Text="{Binding Comment, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                      />
 
@@ -58,7 +59,7 @@
                 2. Choose text format. (<Hyperlink NavigateUri="clipper://">Edit formats.</Hyperlink>)
             </TextBlock>
             
-            <ListBox Grid.Row="3"
+            <ListBox Grid.Row="3" x:Name="TextFormatListBox"
                      ItemsSource="{Binding List}"
                      SelectedItem="{Binding SelectedTextFormat, Mode=TwoWay}">
                 <ListBox.ItemTemplate>

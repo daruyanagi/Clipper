@@ -63,11 +63,7 @@ using Windows.UI.Xaml;
         {
             try
             {
-                var folder = ApplicationData.Current.RoamingFolder;
-                var file = await folder.GetFileAsync("TextFormats.json");
-                var json = await FileIO.ReadTextAsync(file);
-
-                List = json.Deserialize<ObservableCollection<TextFormat>>();
+                List = await TextFormatRepository.Load<TextFormat>();
 
                 ErrorGridVisibility = Visibility.Collapsed;
             }
@@ -76,6 +72,7 @@ using Windows.UI.Xaml;
                 ErrorGridVisibility = Visibility.Visible;
             }
         }
+
         public async void Initialize(ShareOperation operation)
         {
             this.operation = operation;
@@ -245,56 +242,9 @@ using Windows.UI.Xaml;
         }
 
 
-        public class TextFormat : BindableBase
+        public class TextFormat : TextFormatBase
         {
-            private string title;
-            public string Title
-            {
-                get { return title; }
-                set { SetProperty(ref title, value); }
-            }
 
-            private string format;
-            public string Format
-            {
-                get { return format; }
-                set { SetProperty(ref format, value); }
-            }
-
-            private string preview;
-            public string Preview
-            {
-                get { return preview; }
-            }
-
-            public void UpdatePreview(string format, ShareTargetPageViewModel viewModel)
-            {
-                try
-                {
-                    var f = format;
-                    f = f.Replace("{{comment}}", viewModel.Comment);
-                    f = f.Replace("{{applink}}", "{0}");
-                    f = f.Replace("{{appname}}", "{1}");
-                    f = f.Replace("{{description}}", "{2}");
-                    f = f.Replace("{{desc}}", "{2}");
-                    f = f.Replace("{{selected}}", "{3}");
-                    f = f.Replace("{{text}}", "{4}");
-                    f = f.Replace("{{title}}", "{5}");
-                    f = f.Replace("{{weblink}}", "{6}");
-                    f = f.Replace("{{link}}", "{6}");
-                    f = f.Replace("{{url}}", "{6}");
-
-                    preview = string.Format(f, viewModel.AppLink, viewModel.AppName,
-                        viewModel.Description, viewModel.SelectedText, viewModel.Text,
-                        viewModel.Title, viewModel.WebLink);
-                }
-                catch
-                {
-                    preview = string.Empty;
-                }
-
-                RaisePropertyChanged("Preview");
-            }
         }
     }
 }

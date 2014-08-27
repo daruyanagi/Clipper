@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/2010/manifest" xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest">
-  <Identity Name="a48959b9-fc07-4a03-8dce-45068f24206a" Publisher="CN=Yanagi" Version="1.0.0.0" />
+  <Identity Name="4275.Clipper" Publisher="CN=B73FDB0C-06E5-4824-9E7F-3AF969921DF4" Version="2.0.0.0" />
   <Properties>
-    <DisplayName>Clipper.Windows</DisplayName>
-    <PublisherDisplayName>Yanagi</PublisherDisplayName>
+    <DisplayName>Clipper</DisplayName>
+    <PublisherDisplayName>だるやなぎ</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
   <Prerequisites>
