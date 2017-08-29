@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.30723.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.10
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Clipper", "Clipper", "{E0392463-BFCE-4CBE-BAE6-552F34C0516F}"
 EndProject
@@ -11,11 +11,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Clipper.Windows", "Clipper\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Clipper.WindowsPhone", "Clipper\Clipper.WindowsPhone\Clipper.WindowsPhone.csproj", "{2218C09E-7D53-4C0C-AD2D-1AC936F01511}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Clipper2", "Clipper2\Clipper2.csproj", "{06F3AB4F-A121-4813-8ED8-8A22DB2C5830}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Clipper\Clipper.Shared\Clipper.Shared.projitems*{2218c09e-7d53-4c0c-ad2d-1ac936f01511}*SharedItemsImports = 4
-		Clipper\Clipper.Shared\Clipper.Shared.projitems*{d70dd51e-537c-4812-ba03-d75bc073ca4d}*SharedItemsImports = 4
 		Clipper\Clipper.Shared\Clipper.Shared.projitems*{c5a3c128-f0f4-453a-b4b3-5cd472ea2f1c}*SharedItemsImports = 13
+		Clipper\Clipper.Shared\Clipper.Shared.projitems*{d70dd51e-537c-4812-ba03-d75bc073ca4d}*SharedItemsImports = 4
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -72,6 +74,28 @@ Global
 		{2218C09E-7D53-4C0C-AD2D-1AC936F01511}.Release|x86.ActiveCfg = Release|x86
 		{2218C09E-7D53-4C0C-AD2D-1AC936F01511}.Release|x86.Build.0 = Release|x86
 		{2218C09E-7D53-4C0C-AD2D-1AC936F01511}.Release|x86.Deploy.0 = Release|x86
+		{06F3AB4F-A121-4813-8ED8-8A22DB2C5830}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{06F3AB4F-A121-4813-8ED8-8A22DB2C5830}.Debug|Any CPU.Build.0 = Debug|x86
+		{06F3AB4F-A121-4813-8ED8-8A22DB2C5830}.Debug|Any CPU.Deploy.0 = Debug|x86
+		{06F3AB4F-A121-4813-8ED8-8A22DB2C5830}.Debug|ARM.ActiveCfg = Debug|ARM
+		{06F3AB4F-A121-4813-8ED8-8A22DB2C5830}.Debug|ARM.Build.0 = Debug|ARM
+		{06F3AB4F-A121-4813-8ED8-8A22DB2C5830}.Debug|ARM.Deploy.0 = Debug|ARM
+		{06F3AB4F-A121-4813-8ED8-8A22DB2C5830}.Debug|x64.ActiveCfg = Debug|x64
+		{06F3AB4F-A121-4813-8ED8-8A22DB2C5830}.Debug|x64.Build.0 = Debug|x64
+		{06F3AB4F-A121-4813-8ED8-8A22DB2C5830}.Debug|x64.Deploy.0 = Debug|x64
+		{06F3AB4F-A121-4813-8ED8-8A22DB2C5830}.Debug|x86.ActiveCfg = Debug|x86
+		{06F3AB4F-A121-4813-8ED8-8A22DB2C5830}.Debug|x86.Build.0 = Debug|x86
+		{06F3AB4F-A121-4813-8ED8-8A22DB2C5830}.Debug|x86.Deploy.0 = Debug|x86
+		{06F3AB4F-A121-4813-8ED8-8A22DB2C5830}.Release|Any CPU.ActiveCfg = Release|x86
+		{06F3AB4F-A121-4813-8ED8-8A22DB2C5830}.Release|ARM.ActiveCfg = Release|ARM
+		{06F3AB4F-A121-4813-8ED8-8A22DB2C5830}.Release|ARM.Build.0 = Release|ARM
+		{06F3AB4F-A121-4813-8ED8-8A22DB2C5830}.Release|ARM.Deploy.0 = Release|ARM
+		{06F3AB4F-A121-4813-8ED8-8A22DB2C5830}.Release|x64.ActiveCfg = Release|x64
+		{06F3AB4F-A121-4813-8ED8-8A22DB2C5830}.Release|x64.Build.0 = Release|x64
+		{06F3AB4F-A121-4813-8ED8-8A22DB2C5830}.Release|x64.Deploy.0 = Release|x64
+		{06F3AB4F-A121-4813-8ED8-8A22DB2C5830}.Release|x86.ActiveCfg = Release|x86
+		{06F3AB4F-A121-4813-8ED8-8A22DB2C5830}.Release|x86.Build.0 = Release|x86
+		{06F3AB4F-A121-4813-8ED8-8A22DB2C5830}.Release|x86.Deploy.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -80,5 +104,8 @@ Global
 		{C5A3C128-F0F4-453A-B4B3-5CD472EA2F1C} = {E0392463-BFCE-4CBE-BAE6-552F34C0516F}
 		{D70DD51E-537C-4812-BA03-D75BC073CA4D} = {E0392463-BFCE-4CBE-BAE6-552F34C0516F}
 		{2218C09E-7D53-4C0C-AD2D-1AC936F01511} = {E0392463-BFCE-4CBE-BAE6-552F34C0516F}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F76D0760-68DD-4C3F-A4A3-E4F18FD08314}
 	EndGlobalSection
 EndGlobal

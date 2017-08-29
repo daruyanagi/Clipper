@@ -1,0 +1,30 @@
+﻿<Application
+    x:Class="Clipper2.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Clipper2"
+    RequestedTheme="Light">
+
+    <Application.Resources>
+        <Style TargetType="StackPanel">
+            <Setter Property="Margin" Value="8" />
+        </Style>
+        <Style TargetType="TextBlock" x:Key="RowHeader">
+            <Setter Property="Margin" Value="8" />
+            <Setter Property="MinWidth" Value="72" />
+            <Setter Property="Foreground" Value="Gray" />
+        </Style>
+        <Style TargetType="TextBox" x:Key="RowIteme">
+            <Setter Property="BorderThickness" Value="0,0,0,0" />
+            <Setter Property="Margin" Value="8" />
+        </Style>
+        <Style TargetType="ComboBox" x:Key="RowItemeComboBox">
+            <Setter Property="BorderThickness" Value="0,0,0,0" />
+            <Setter Property="Margin" Value="8" />
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="8" />
+        </Style>
+    </Application.Resources>
+
+</Application>

@@ -1,0 +1,2 @@
+MainPackage=C:\Users\Hideto\Documents\GitHub\Clipper\Clipper2\bin\x64\Release\Upload\Clipper2_3.0.3.0_x64.appx
+SymbolPackage=C:\Users\Hideto\Documents\GitHub\Clipper\Clipper2\bin\x64\Release\Upload\Clipper2_3.0.3.0\Clipper2_3.0.3.0_x64.appxsym
