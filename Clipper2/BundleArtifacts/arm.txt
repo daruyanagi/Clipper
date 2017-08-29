@@ -1,0 +1,6 @@
+MainPackage=C:\Users\Hideto\Documents\GitHub\Clipper\Clipper2\bin\ARM\Release\Clipper2_3.0.3.0_ARM.appx
+SymbolPackage=C:\Users\Hideto\Documents\GitHub\Clipper\Clipper2\AppPackages\Clipper2_3.0.3.0_Test\Clipper2_3.0.3.0_ARM.appxsym
+ResourcePack=C:\Users\Hideto\Documents\GitHub\Clipper\Clipper2\bin\ARM\Release\Clipper2_3.0.3.0_scale-100.appx
+ResourcePack=C:\Users\Hideto\Documents\GitHub\Clipper\Clipper2\bin\ARM\Release\Clipper2_3.0.3.0_scale-125.appx
+ResourcePack=C:\Users\Hideto\Documents\GitHub\Clipper\Clipper2\bin\ARM\Release\Clipper2_3.0.3.0_scale-150.appx
+ResourcePack=C:\Users\Hideto\Documents\GitHub\Clipper\Clipper2\bin\ARM\Release\Clipper2_3.0.3.0_scale-400.appx

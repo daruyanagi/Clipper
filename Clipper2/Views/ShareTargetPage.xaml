@@ -1,0 +1,97 @@
+﻿<Page
+    x:Class="Clipper2.Views.ShareTargetPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Clipper2.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    
+    xmlns:helpers="using:Clipper2.Helpers">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+          Padding="8">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Border Grid.Row="0" Grid.ColumnSpan="2" BorderThickness="0,0,0,1" BorderBrush="LightGray" />
+        <Border Grid.Row="1" Grid.ColumnSpan="2" BorderThickness="0,0,0,1" BorderBrush="LightGray" />
+        <Border Grid.Row="2" Grid.ColumnSpan="2" BorderThickness="0,0,0,1" BorderBrush="LightGray" />
+        <Border Grid.Row="3" Grid.ColumnSpan="2" BorderThickness="0,0,0,1" BorderBrush="LightGray" />
+        <Border Grid.Row="4" Grid.ColumnSpan="2" BorderThickness="0,0,0,1" BorderBrush="LightGray" />
+
+        <WebView Grid.Row="0" Grid.ColumnSpan="2" 
+                 helpers:BindingHelper.Html="{x:Bind ViewModel.LinkfyData.HtmlFormat, Mode=OneWay}" />
+            
+        <TextBlock Grid.Row="1" Grid.Column="0" 
+                   Style="{StaticResource RowHeader}">Title:</TextBlock>
+        <TextBox Grid.Row="1" Grid.Column="1" 
+                 Style="{StaticResource RowIteme}" 
+                 Text="{x:Bind ViewModel.LinkfyData.Title, Mode=OneWay}" 
+                 IsReadOnly="True" />
+
+        <TextBlock Grid.Row="2" Grid.Column="0"  
+                   Style="{StaticResource RowHeader}">Url:</TextBlock>
+        <TextBox Grid.Row="2" Grid.Column="1" 
+                 Style="{StaticResource RowIteme}" 
+                 Text="{x:Bind ViewModel.LinkfyData.WebLink, Mode=OneWay}"
+                 IsReadOnly="True" />
+
+        <TextBlock Grid.Row="3" Grid.Column="0"
+                   Style="{StaticResource RowHeader}">Comment:</TextBlock>
+        <TextBox Grid.Row="3" Grid.Column="1" 
+                 AcceptsReturn="True"
+                 Style="{StaticResource RowIteme}" 
+                 Text="{Binding ViewModel.LinkfyData.Comment, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+
+        <TextBlock Grid.Row="4" Grid.Column="0"  
+                   Style="{StaticResource RowHeader}">Rule:</TextBlock>
+        <ComboBox x:Name="comboBox" 
+                  Grid.Row="4" Grid.Column="1" 
+                  Style="{StaticResource RowItemeComboBox}"
+                  ItemsSource="{x:Bind ViewModel.LinkfyRules, Mode=OneWay}"
+                  SelectedItem="{Binding ViewModel.SelectedLinkfyRule, Mode=TwoWay}" 
+                  >
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock>
+                        <Run Text="{Binding Name}" /> 
+                        <Run Text="{Binding DisplayRule}" Foreground="Gray" />
+                    </TextBlock>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+
+        <TextBlock Grid.Row="8" Grid.Column="0" 
+                   Style="{StaticResource RowHeader}">Preview:</TextBlock>
+        <ScrollViewer Grid.Row="9" Grid.ColumnSpan="2" 
+                      HorizontalScrollMode="Disabled">
+            <TextBlock FontSize="26" TextWrapping="Wrap" Margin="16"
+                       Text="{x:Bind ViewModel.Preview, Mode=OneWay}" />
+        </ScrollViewer>
+
+        <StackPanel Grid.Row="10" Grid.ColumnSpan="2" 
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Right">
+            <Button Command="{x:Bind ViewModel.ShareCommand}">Share</Button>
+            <Button Command="{x:Bind ViewModel.CopyToClipboardCommand}">Copy To Clipboard</Button>
+            <Button Command="{x:Bind ViewModel.CloseCommand}">Close</Button>
+        </StackPanel>
+    </Grid>
+</Page>
