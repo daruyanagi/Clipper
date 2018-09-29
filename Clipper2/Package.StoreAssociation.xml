@@ -2,6 +2,7 @@
 <StoreAssociation xmlns="http://schemas.microsoft.com/appx/2010/storeassociation">
   <Publisher>CN=B73FDB0C-06E5-4824-9E7F-3AF969921DF4</Publisher>
   <PublisherDisplayName>だるやなぎ</PublisherDisplayName>
+  <DeveloperAccountType>MSA</DeveloperAccountType>
   <GeneratePackageHash>http://www.w3.org/2001/04/xmlenc#sha256</GeneratePackageHash>
   <SupportedLocales>
     <Language Code="af" InMinimumRequirementSet="true" />
@@ -365,8 +366,10 @@
   </ProductReservedInfo>
   <AccountPackageIdentityNames>
     <MainPackageIdentityName>4275.Abema.Alart</MainPackageIdentityName>
+    <MainPackageIdentityName>4275.Amaguri</MainPackageIdentityName>
     <MainPackageIdentityName>4275.Hateboo</MainPackageIdentityName>
     <MainPackageIdentityName>4275.Sabun</MainPackageIdentityName>
+    <MainPackageIdentityName>4275.Tonjiru</MainPackageIdentityName>
     <MainPackageIdentityName>4275.398115153CCB8</MainPackageIdentityName>
   </AccountPackageIdentityNames>
   <PackageInfoList LandingUrl="https://developer.microsoft.com/dashboard/Application?appId=9WZDNCRDF8KZ">
