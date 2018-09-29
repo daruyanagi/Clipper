@@ -58,7 +58,7 @@ namespace Clipper2.Models
 
                 f = f.Replace("{{html}}", "{6}");
 
-                return string.Format(f, data.Title, data.Description, data.WebLink, data.Text, data.ApplicationName, data.ApplicationLink, data.HtmlFormat);
+                return string.Format(f, data.Title, data.Description, Uri.EscapeUriString(data.WebLink.ToString()), data.Text, data.ApplicationName, data.ApplicationLink, data.HtmlFormat);
             }
             catch
             {

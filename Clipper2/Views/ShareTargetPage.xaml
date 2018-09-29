@@ -12,7 +12,7 @@
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
           Padding="8">
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
@@ -36,7 +36,7 @@
         <Border Grid.Row="3" Grid.ColumnSpan="2" BorderThickness="0,0,0,1" BorderBrush="LightGray" />
         <Border Grid.Row="4" Grid.ColumnSpan="2" BorderThickness="0,0,0,1" BorderBrush="LightGray" />
 
-        <WebView Grid.Row="0" Grid.ColumnSpan="2" 
+        <WebView Grid.Row="0" Grid.ColumnSpan="2"
                  helpers:BindingHelper.Html="{x:Bind ViewModel.LinkfyData.HtmlFormat, Mode=OneWay}" />
             
         <TextBlock Grid.Row="1" Grid.Column="0" 
